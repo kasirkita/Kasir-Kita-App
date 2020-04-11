@@ -1,6 +1,6 @@
 {
   "name": "kasir-kita",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "main.js",
   "license": "MIT",
   "author": {
@@ -12,11 +12,13 @@
     "start": "electron .",
     "pack": "build --dir",
     "dist": "build",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "build-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --icon=./build/logo.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName='Kasir Kita'"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "electron-prompt": "^1.5.1",
+    "electron-wix-msi": "^2.2.0",
     "escpos": "^3.0.0-alpha.3",
     "escpos-usb": "^3.0.0-alpha.2",
     "express": "^4.17.1",
@@ -25,6 +27,7 @@
   "devDependencies": {
     "electron": "^8.2.1",
     "electron-builder": "^22.4.1",
+    "electron-installer-debian": "^3.0.0",
     "electron-packager": "^14.2.1",
     "electron-rebuild": "^1.10.1"
   },

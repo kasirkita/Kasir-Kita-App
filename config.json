@@ -1,0 +1,12 @@
+{
+    "dest": "dist",
+    "icon": "build/logo.png",
+    "categories": [
+      "Utility"
+    ],
+    "lintianOverrides": [
+      "changelog-file-missing-in-native-package"
+    ],
+    "description": "Kasir Kita",
+    "productDescription": "Kasir Kita aplikasi POS yang cocok untuk UMKM dan UKM"
+}
