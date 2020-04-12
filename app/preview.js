@@ -14,7 +14,6 @@ exports.preview = (req, res) => {
 
         escpos.Image.load(!data.logo_remove ? data.logo : blank, function(image){
             device.open(function(){
-                error = error
                 printer.font('A')
                     .align('ct')
                     .style('B')

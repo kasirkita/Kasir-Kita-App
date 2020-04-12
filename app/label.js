@@ -28,8 +28,8 @@ exports.label = (req, res) => {
       printer.close();
     });
 
-    res.json({
-      message: 'Data printed'
+    res.status(200).json({
+      "message": "Label berhasil dicetak"
     })
 
   }

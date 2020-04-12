@@ -14,7 +14,6 @@ exports.receipt = (req, res) => {
 
         escpos.Image.load(!data.logo_remove ? data.logo : blank, function(image){
             device.open(function(){
-                error = error
                 printer.font('A')
                     .align('ct')
                     .style('B')
@@ -175,10 +174,9 @@ exports.receipt = (req, res) => {
         
             });
         });
-    
-       
-        res.status(500).json({
-            "message": error
+
+        res.status(200).json({
+            "message": "Struk berhasil dicetak"
         })
     
     } catch {

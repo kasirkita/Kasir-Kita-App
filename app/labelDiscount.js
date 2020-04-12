@@ -43,9 +43,10 @@ exports.labelDiscount = (req, res) => {
   
     });
   
-    res.json({
-      message: 'Data printed'
+    res.status(200).json({
+      "message": "Label Diskon berhasil dicetak"
     })
+
   } catch {
     console.error('Error saat print: ', e);
     res.sendStatus( 500 );
