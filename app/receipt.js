@@ -1,14 +1,14 @@
 'use strict';
 const escpos = require('escpos');
 const path = require('path')
-escpos.USB = require('escpos-usb')
-
-const device  = new escpos.USB();
-const options = { encoding: 'GB18030', lineWidth: 32 }
-const printer = new escpos.Printer(device, options);
-const blank = path.join(__dirname, 'blank.png');
 
 exports.receipt = (req, res) => {
+    escpos.USB = require('escpos-usb')
+    
+    const device  = new escpos.USB();
+    const options = { encoding: 'GB18030', lineWidth: 32 }
+    const printer = new escpos.Printer(device, options);
+    const blank = path.join(__dirname, 'blank.png');
     const data = req.body
     try {
 
@@ -180,7 +180,8 @@ exports.receipt = (req, res) => {
         })
     
     } catch {
-        console.error('Error saat print: ', e);
-        res.sendStatus( 500 );
+        res.status(500).json({
+            "message": "Error saat mencetak"
+        })
     }
 }

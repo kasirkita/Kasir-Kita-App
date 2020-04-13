@@ -23,6 +23,7 @@ app.route('/preview').post(preview.preview)
 app.route('/label').post(label.label)
 app.route('/receipt').post(receipt.receipt)
 app.route('/label-discount').post(labelDiscount.labelDiscount)
+    
 
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname, './', 'index.html'));

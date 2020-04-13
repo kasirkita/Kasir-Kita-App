@@ -1,16 +1,16 @@
 'use strict';
 const escpos = require('escpos');
-escpos.USB = require('escpos-usb')
-
-const device  = new escpos.USB();
-
-const printer = new escpos.Printer(device);
 
 exports.label = (req, res) => {
   
-  const data = req.body
-
   try {
+    escpos.USB = require('escpos-usb')
+    
+    const device  = new escpos.USB();
+    
+    const printer = new escpos.Printer(device);
+  
+    const data = req.body
     device.open(function() {
       data.data && data.data.map(label => {
         printer
@@ -34,8 +34,9 @@ exports.label = (req, res) => {
 
   }
   catch (e) {
-    console.error('Error saat print: ', e);
-    res.sendStatus( 500 );
+    res.status(500).json({
+      "message": "Error saat mencetak"
+    })
   }
 
 }
