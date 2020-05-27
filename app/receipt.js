@@ -23,7 +23,7 @@ exports.receipt = (req, res) => {
                     .then(function(){
                         printer.style('NORMAL')
                             .text(data.address)
-                            .text(data.phone_number)
+                            .text(data.phone_number ? `Telp. ${data.phone_number}` : '')
                             .text('')
                             .align('LT')
                             .tableCustom([
@@ -77,7 +77,7 @@ exports.receipt = (req, res) => {
                             .text('')
                             .align('LT')
                             data.details && data.details.map(cart => {
-                                printer.text(cart.item_name)
+                                printer.text(`${cart.product_name} / ${cart.unit_name}`)
                                 .tableCustom([
                                     { text: `x${cart.qty} ${cart.price_formatted}`,
                                         align: 'LEFT',
